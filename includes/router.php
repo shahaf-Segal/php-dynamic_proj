@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 const ALLOWED_METHODS = ['GET', 'POST'];
 const INDEX_PAGE = 'index';
-const ROUTES_DIR = __DIR__ . '/../routes';
 const PAGES = ['contact', 'guestbook'];
 
 function normalizeUri(string $uri): string
