@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+require_once __DIR__ . '/view.php';
 
 const ALLOWED_METHODS = ['GET', 'POST'];
 const INDEX_PAGE = 'index';
@@ -32,7 +33,7 @@ function dispatch(string $uri, string $method): void
     }
     $filePath = getFilePath($uri, $method);
     if (file_exists($filePath)) {
-        include($filePath);
+        renderView($filePath);
     } else {
         throw404();
     }
