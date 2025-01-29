@@ -23,7 +23,7 @@ function throw404(): void
 {
     http_response_code(404);
     echo '404 Not Found';
-    die;
+    exit;
 }
 
 function dispatch(string $uri, string $method): void
