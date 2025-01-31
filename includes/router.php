@@ -26,6 +26,13 @@ function throw404(): void
     exit;
 }
 
+function badRequest(string $message = '404 Not Found'): void
+{
+    http_response_code(404);
+    echo  $message;
+    exit;
+}
+
 function dispatch(string $uri, string $method): void
 {
     if (!in_array($method, ALLOWED_METHODS)) {
