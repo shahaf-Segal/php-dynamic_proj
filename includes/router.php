@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 require_once __DIR__ . '/view.php';
+require_once __DIR__ . '/response.php';
 
 const ALLOWED_METHODS = ['GET', 'POST'];
 const INDEX_PAGE = 'index';
@@ -19,19 +20,7 @@ function getFilePath(string $uri, string $method): string
     return ROUTES_DIR . "/{$uri}_{$method}.php";
 }
 
-function throw404(): void
-{
-    http_response_code(404);
-    echo '404 Not Found';
-    exit;
-}
 
-function badRequest(string $message = '404 Not Found'): void
-{
-    http_response_code(404);
-    echo  $message;
-    exit;
-}
 
 function dispatch(string $uri, string $method): void
 {
