@@ -4,6 +4,7 @@ declare(strict_types=1);
 require_once __DIR__ . '/view.php';
 require_once __DIR__ . '/response.php';
 require_once __DIR__ . '/stringManipulation.php';
+require_once __DIR__ . '/flash.php';
 
 const ALLOWED_METHODS = ['GET', 'POST'];
 const INDEX_PAGE = 'index';
@@ -19,6 +20,13 @@ function getFilePath(string $uri, string $method): string
 {
     $uri = normalizeUri($uri);
     return ROUTES_DIR . "/{$uri}_{$method}.php";
+}
+
+
+function redirect(string $uri): void
+{
+    header('Location: ' . $uri);
+    exit;
 }
 
 

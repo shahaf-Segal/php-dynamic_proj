@@ -16,9 +16,9 @@ $inserted =  insertMessage(dbConnect(), $name, $email, $message);
 
 if ($inserted) {
     $safename = escapeHtmlString($name);
-    echo "Message sent successfully, Thank you $safename";
-    exit;
+    addFlashMessage("success", "Message sent successfully, Thank you $safename");
+    redirect("/guestbook");
 }
-
-serverError("Failed to send message");
+addFlashMessage("error", "Failed to send message");
+redirect("/guestbook");
 exit;
