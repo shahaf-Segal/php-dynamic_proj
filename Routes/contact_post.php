@@ -15,9 +15,10 @@ if (empty($name) || empty($email) || empty($message)) {
 $inserted =  insertMessage(dbConnect(), $name, $email, $message);
 
 if ($inserted) {
-    $safename = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
+    $safename = escapeHtmlString($name);
     echo "Message sent successfully, Thank you $safename";
     exit;
 }
 
 serverError("Failed to send message");
+exit;
