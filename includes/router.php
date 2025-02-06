@@ -5,6 +5,7 @@ require_once __DIR__ . '/view.php';
 require_once __DIR__ . '/response.php';
 require_once __DIR__ . '/stringManipulation.php';
 require_once __DIR__ . '/flash.php';
+require_once __DIR__ . '/csrf.php';
 
 const ALLOWED_METHODS = ['GET', 'POST'];
 const INDEX_PAGE = 'index';
