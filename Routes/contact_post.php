@@ -1,7 +1,14 @@
 <?php
+$csrf_token = $_POST['csrf_token'];
 $name = $_POST['name'];
 $email = $_POST['email'];
 $message = $_POST['message'];
+
+
+if (!validateCsrfTokenFromValue($csrf_token)) {
+    addFlashMessage("error", "Invalid Form Submission");
+    redirect("/guestbook");
+}
 
 
 
