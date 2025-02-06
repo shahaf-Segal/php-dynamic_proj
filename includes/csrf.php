@@ -49,7 +49,7 @@ function isCsrfTokenValid(?string $token, ?int $time): bool
 function validateCsrfTokenFromValue(string $token): bool
 {
     [$sessionToken, $sessionTime] = getCsrfTokenAndTime();
-    return isCsrfTokenValid($token, $sessionTime);
+    return isCsrfTokenValid($token, $sessionTime) && hash_equals($token, $sessionToken);
 }
 
 
