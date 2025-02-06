@@ -1,5 +1,7 @@
 <h1>contact us </h1>
 <form method="post">
+    <input type="hidden" name="csrf_token" value="<?= getCsrfToken(); ?>">
+
     <div>
         <label for="name">Name</label>
         <input type="text" name="name" id="name">
