@@ -13,6 +13,7 @@ const PAGES = ['contact', 'guestbook'];
 
 function normalizeUri(string $uri): string
 {
+    $uri = strtok($uri, '?');
     $uri = strtolower(trim($uri, '/'));
     return $uri === '' ? INDEX_PAGE : $uri;
 }
